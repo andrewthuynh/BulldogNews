@@ -13,7 +13,7 @@ class HomeScreen extends Component {
   getData() {
     let firstMovieTitle;
     axios.get("https://facebook.github.io/react-native/movies.json").then(function(response) {
-      firstMovieTitle = response.data.movies;
+      firstMovieTitle = response.data.movies[0].title;
       console.log(firstMovieTitle);
     });
 
