@@ -11,10 +11,11 @@ import {
     Icon,
     Row,
     ScrollView,
-    Heading
+    Heading,
 } from '@shoutem/ui';
 import axios from 'axios';
 import CardMed from '../components/CardMed';
+import { baseURL } from '../lib/baseUrl';
 
 class SearchScreen extends Component {
 
@@ -27,10 +28,10 @@ class SearchScreen extends Component {
 
     }
 
-    getArticles = async (tag) => {
+    getArticles = async (search) => {
         try {
             await axios
-                .get(`${baseURL}/api/article/?tag=${tag}`)
+                .get(`${baseURL}/api/articles/searchTitle?title=${search}`)
                 .then(res => {
                     this.setState({
                         articles: res.data
@@ -42,14 +43,14 @@ class SearchScreen extends Component {
     }
 
     render() {
-        const { recipes, search } = this.state;
+        const { articles, search } = this.state;
 
         let SearchList = articles.map((article, index) => {
             return (
               <CardMed
                 key={index}
                 navigation={this.props.navigation}
-                name={article.name}
+                name={article.title}
                 description={article.description}
                 details={article.details}
                 image={article.image}
@@ -63,7 +64,6 @@ class SearchScreen extends Component {
                 <Heading>Search</Heading>
                 </View>
                 <View style={styles.container}>
-                    <View style={{ margin: 7 }} />
                     <Row>
                         <Icon name="search" />
                         <TextInput
@@ -73,6 +73,7 @@ class SearchScreen extends Component {
                             style={styles.search}
                             autoCapitalize="none"
                         />
+                        <View style={{ margin: 4 }} />
                         <Button
                             styleName="secondary"
                             onPress={() => this.getArticles(search)}

@@ -27,6 +27,11 @@ export default class App extends React.Component {
     this.setState({ fontsAreLoaded: true });
   }
 
+  async componentDidMount() {
+    // supress warnings
+    console.disableYellowBox = true;
+  }
+
   render() {
 
     if (!this.state.fontsAreLoaded) {
