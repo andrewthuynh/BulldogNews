@@ -14,6 +14,7 @@ import {
     Heading
 } from '@shoutem/ui';
 import axios from 'axios';
+import CardMed from '../components/CardMed';
 
 class SearchScreen extends Component {
 
@@ -42,6 +43,19 @@ class SearchScreen extends Component {
 
     render() {
         const { recipes, search } = this.state;
+
+        let SearchList = articles.map((article, index) => {
+            return (
+              <CardMed
+                key={index}
+                navigation={this.props.navigation}
+                name={article.name}
+                description={article.description}
+                details={article.details}
+                image={article.image}
+              />
+            );
+          });
 
         return (
             <ScrollView>
