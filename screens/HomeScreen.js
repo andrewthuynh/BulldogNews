@@ -37,12 +37,7 @@ class HomeScreen extends Component {
     try {
       await axios.get(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=0c69f9ba9a494e84a33b2749dab3fc5e`).then(res => {
         this.setState({
-          article1Title: res.data.articles[0].title,
           article1Img: res.data.articles[0].urlToImage,
-          article1Desc: res.data.articles[0].description,
-          article2Title: res.data.articles[1].title,
-          article2Img: res.data.articles[1].urlToImage,
-          article3Img: res.data.articles[2].urlToImage,
           news: [
             {
               title: res.data.articles[0].title
@@ -117,7 +112,6 @@ class HomeScreen extends Component {
 
     return (
       <Screen>
-        <NavigationBar title="News" styleName="inline" />
         <ListView data={groupedData} renderRow={this.renderRow} />
       </Screen>
     );
