@@ -83,6 +83,7 @@ class SearchScreen extends Component {
                     </Row>
                     <View style={{ margin: 20 }} />
                     {articles.length!=0 && SearchList}
+                    {articles.length!=0 && <Text>No articles found.</Text>}
                     <View style={{ margin: 20 }} />
                 </View>
             </ScrollView>
