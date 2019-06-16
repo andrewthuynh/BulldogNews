@@ -50,21 +50,18 @@ class SearchScreen extends Component {
               <CardMed
                 key={index}
                 navigation={this.props.navigation}
-                name={article.title}
+                title={article.title}
                 description={article.description}
                 details={article.details}
                 image={article.image}
                 body={article.body}
-                date={article.date}
+                date={article.dateCreated}
               />
             );
           });
 
         return (
             <ScrollView>
-                <View style={styles.container2}>
-                <Heading>Search</Heading>
-                </View>
                 <View style={styles.container}>
                     <Row>
                         <Icon name="search" />

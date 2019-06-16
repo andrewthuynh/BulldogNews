@@ -35,7 +35,7 @@ class CardMed extends Component {
 
                     <Tile>
                         <TouchableOpacity
-                            onPress={() => props.navigation.navigate('Article',
+                            onPress={() => this.props.navigation.navigate('Article',
                                 {
                                     title: title,
                                     description: description,
