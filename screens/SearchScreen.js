@@ -28,10 +28,23 @@ class SearchScreen extends Component {
 
     }
 
-    getArticles = async (search) => {
+    searchByName = async (search) => {
         try {
             await axios
-                .get(`${baseURL}/api/articles/searchTitle?title=${search}`)
+                .get(`${baseURL}/api/articles/searchTitle?title=${search.toLowerCase()}`)
+                .then(res => {
+                    this.setState({
+                        articles: res.data
+                    })
+                })
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    searchByTag = async (search) => {
+        try {
+            await axios
+                .get(`${baseURL}/api/articles/searchTags?tag=${search.toLowerCase()}`)
                 .then(res => {
                     this.setState({
                         articles: res.data
@@ -56,6 +69,7 @@ class SearchScreen extends Component {
                 image={article.image}
                 body={article.body}
                 date={article.dateCreated}
+                author={article.author}
               />
             );
           });
@@ -75,7 +89,7 @@ class SearchScreen extends Component {
                         <View style={{ margin: 4 }} />
                         <Button
                             styleName="secondary"
-                            onPress={() => this.getArticles(search)}
+                            onPress={() => this.searchByTag(search)}
                         >
                             <Text>SEARCH</Text>
                         </Button>

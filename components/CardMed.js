@@ -24,11 +24,11 @@ class CardMed extends Component {
         if (month.length < 2) month = '0' + month;
         if (day.length < 2) day = '0' + day;
 
-        return [month, day, year].join('/');
+        return [month, day, year].join('/').concat(' ', d.toLocaleTimeString());
     }
 
     render() {
-        const {title, description, image, body, date} = this.props;
+        const {author, title, description, image, body, date} = this.props;
         return (
             <Fragment>
                 <View style={styles.container}>
@@ -41,7 +41,8 @@ class CardMed extends Component {
                                     description: description,
                                     image: image,
                                     body: body,
-                                    date: this.formatDate(date)
+                                    date: this.formatDate(date),
+                                    author: author
                                 })}
                         >
                             <Image
@@ -66,8 +67,8 @@ export default CardMed;
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 10,
-        marginBottom: 10,
+        marginTop: 5,
+        marginBottom: 5,
         elevation: 5,
     }
 });

@@ -32,6 +32,8 @@ class ArticleScreen extends Component {
         const image = this.props.navigation.getParam('image', 'https://shoutem.github.io/img/ui-toolkit/examples/image-3.png');
         const body = this.props.navigation.getParam('body', 'filler detail');
         const date = this.props.navigation.getParam('date', 'date');
+        const author = this.props.navigation.getParam('author', 'John Doe');
+
 
         return (
             <ScrollView>
@@ -42,7 +44,7 @@ class ArticleScreen extends Component {
                         source={{ uri: image }}
                     />
                     <Title>{description}</Title>
-                    <Caption>{date}</Caption>
+                    <Caption>{date} by {author}</Caption>
                     <Divider styleName="line"/>
                     <Text>{body}</Text>
                 </View>
