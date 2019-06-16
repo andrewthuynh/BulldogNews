@@ -54,6 +54,8 @@ class SearchScreen extends Component {
                 description={article.description}
                 details={article.details}
                 image={article.image}
+                body={article.body}
+                date={article.date}
               />
             );
           });
@@ -81,8 +83,8 @@ class SearchScreen extends Component {
                             <Text>SEARCH</Text>
                         </Button>
                     </Row>
-                    <View style={{ margin: 20 }} />
-                    {articles.length!=0 && SearchList}
+                    <View style={{ margin: 5 }} />
+                    {articles.length!=0 && <Screen>{SearchList}</Screen>}
                     {articles.length==0 && <Text>No articles found.</Text>}
                     <View style={{ margin: 20 }} />
                 </View>
