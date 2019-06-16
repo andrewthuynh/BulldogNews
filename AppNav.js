@@ -6,6 +6,7 @@ import HomeScreen from "./screens/HomeScreen";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import SearchScreen from "./screens/SearchScreen";
 import SettingsScreen from "./screens/SettingsScreen";
+import ArticleScreen from "./screens/ArticleScreen";
 
 class AppNav extends Component {
   render() {
@@ -51,6 +52,9 @@ const SearchStack = createStackNavigator({
         headerStyle: { height: 40 }
       };
     }
+  },
+  Article: {
+    screen: ArticleScreen
   }
 });
 const SettingsStack = createStackNavigator({
