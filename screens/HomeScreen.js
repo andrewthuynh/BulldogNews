@@ -44,22 +44,18 @@ class HomeScreen extends Component {
             },
             {
               title: res.data.articles[1].title,
-              address: "2",
               image: { url: res.data.articles[1].urlToImage }
             },
             {
               title: res.data.articles[2].title,
-              address: "3",
               image: { url: res.data.articles[2].urlToImage }
             },
             {
               title: res.data.articles[3].title,
-              address: "4",
               image: { url: res.data.articles[3].urlToImage }
             },
             {
               title: res.data.articles[4].title,
-              address: "5",
               image: { url: res.data.articles[4].urlToImage }
             }
           ]
